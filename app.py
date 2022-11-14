@@ -44,14 +44,17 @@ headers = {
 
 
 def run():
-    for i in range(40):
-        st.write("# Bienvenido a NanoTeam! 👋⚽")
+    st.write("# Bienvenido a NanoTeam! 👋⚽")
+
+    for i in range(30):
 
         conn = http.client.HTTPSConnection("v3.football.api-sports.io")
         conn.request("GET", "/fixtures?live=all", headers=headers)
         res = conn.getresponse()
         data = res.read()    
         zz = deepcopy(json.loads(data)) 
+        print(zz['response'])
+        time.sleep(7)
     
 
 if __name__ == "__main__":
