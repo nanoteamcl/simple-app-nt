@@ -40,4 +40,24 @@ headers = {
     'x-rapidapi-host': "v3.football.api-sports.io",
     'x-rapidapi-key':"903a0d7149864011a7b81adaa2c060d9"
 
-st.write('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+    }
+
+
+def run():
+    for i in range(40):
+        st.write("# Bienvenido a NanoTeam! 👋⚽")
+
+        conn = http.client.HTTPSConnection("v3.football.api-sports.io")
+        conn.request("GET", "/fixtures?live=all", headers=headers)
+        res = conn.getresponse()
+        data = res.read()    
+        zz = deepcopy(json.loads(data)) 
+    
+
+if __name__ == "__main__":
+        st.set_page_config(
+        page_title="NT ⚽🔮",
+        page_icon="👋",
+        layout="wide"
+        )
+        run()
